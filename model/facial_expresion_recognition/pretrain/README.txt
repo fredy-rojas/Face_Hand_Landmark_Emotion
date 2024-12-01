@@ -1,0 +1,2 @@
+facial_expression_recognition_mobilefacenet_2022july.onnx
+- Source: https://github.com/opencv/opencv_zoo/blob/main/models/facial_expression_recognition/facial_expression_recognition_mobilefacenet_2022july.onnx

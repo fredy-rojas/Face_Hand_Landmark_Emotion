@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "landmark-tracking"
+version = "0.1.0"
+description = "Tracking landmark face and hands"
+authors = ["Fredy Rojas"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "src" },]
+
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0" #"^3.8" # 
+numpy = "<2.1.3"
+mediapipe = "^0.10.18"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
