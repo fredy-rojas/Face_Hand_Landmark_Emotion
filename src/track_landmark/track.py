@@ -29,6 +29,12 @@ def face_detection_track_face_hands_emotion(model_path_yunet,
         boundingBoxScaleFactor: bounding box increase or deacrese from the output model face_detection_yunet_2023mar.onnx
 
     """
+
+
+    # Define the codec and create a VideoWriter object
+    fourcc = cv2.VideoWriter_fourcc(*'XVID')  # Codec for AVI files
+    out = cv2.VideoWriter('output.avi', fourcc, 20.0, (640, 480)) 
+
     net = YuNet(
         modelPath=model_path_yunet,
         inputSize=[320, 320],
@@ -150,6 +156,9 @@ def face_detection_track_face_hands_emotion(model_path_yunet,
         
                     cv2.putText(image, label_emo, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1.0, emotion_colors[emo_label_pred], 2)
 
+                    label_re = f"RightEyes: x={int(dect[4])}, y={int(dect[5])}"
+                    cv2.putText(image, label_re, (x, y + int(height*boundingBoxScaleFactor) + 20), 
+                                cv2.FONT_HERSHEY_SIMPLEX, .5, emotion_colors[emo_label_pred], 2)
                     
             #================================================================================================
             #================================================================================================
@@ -166,6 +175,9 @@ def face_detection_track_face_hands_emotion(model_path_yunet,
                     )
 
 
+            #========================================================================
+            # Write the processed frame to the video file
+            # out.write(image)
 
             #=========================================================================
             cv2.imshow('EMO_HANDS_FACE_LandMarks', image)
@@ -174,4 +186,5 @@ def face_detection_track_face_hands_emotion(model_path_yunet,
                 break
 
     cap.release()
+    # out.release()  # Save the video file
     cv2.destroyAllWindows()
