@@ -2,6 +2,7 @@
 ![Real Time Face and Hand Landmarks tracking with Face Emotion Recognition](_image/out_real_time.gif)
 
 **Note:**
+- Each face and hand landmark has its coordinates.
 - Certain face angles are not detected, which affects FER prediction.
 
 **Next Steps:**
