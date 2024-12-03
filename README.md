@@ -1,5 +1,5 @@
 # **Face and Hand Landmark Tracking with Face Emotion Recognition (FER)**
-![Real Time Face and Hand Landmarks tracking with Face Emotion Recognition](_images/out_real_time.gif)
+![Real Time Face and Hand Landmarks tracking with Face Emotion Recognition](_image/out_real_time.gif)
 
 **Note:**
 - Certain face angles are not detected, which affects FER prediction.
