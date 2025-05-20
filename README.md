@@ -13,6 +13,6 @@
 2. I am using Poetry (version 1.8.3)
 3. Install dependencies with `poetry install`.
 4. Enter the virtual environment with `poetry shell`.
-5. Run the application with `python app.py`.
+5. Run the application with `python app.py` for cam_id=0. Note: second terminal can run app1.py for second cam
 6. Press "q" on your keyboard to exit the camera.
 
