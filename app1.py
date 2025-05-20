@@ -18,7 +18,7 @@ class cfg:
 def main(model_path_yunet=cfg.YUNET_2023mar,
          model_path_FER_2022july=cfg.FER_2022july,
          boundingBoxScaleFactor=1.05,
-         cam_id=0,
+         cam_id=1,
          ):
     face_detection_track_face_hands_emotion(model_path_yunet=model_path_yunet,
                                             model_path_FER_2022july=model_path_FER_2022july,
