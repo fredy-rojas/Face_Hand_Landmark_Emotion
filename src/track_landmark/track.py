@@ -51,7 +51,7 @@ def face_detection_track_face_hands_emotion(model_path_yunet,
                                     targetId=cv2.dnn.DNN_TARGET_CPU
                                     )
 
-    boundingBoxScaleFactor = 1.05 # to increase face bounding box by 5%
+    boundingBoxScaleFactor = boundingBoxScaleFactor #1.05 # to increase face bounding box by 5%
 
     """
     This model 'fer_model' was trained to predict following classes 
