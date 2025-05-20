@@ -9,6 +9,7 @@ from src.pretrain_models.facial_fer_model import FacialExpressionRecog
 def face_detection_track_face_hands_emotion(model_path_yunet,
                                             model_path_FER_2022july,
                                             boundingBoxScaleFactor=1.05,
+                                            cam_id=0, 
                                             ):
     """
     Description:
@@ -27,6 +28,8 @@ def face_detection_track_face_hands_emotion(model_path_yunet,
         model_path_yunet: face_detection_yunet_2023mar.onnx path
         model_path_FER_2022july: facial_expression_recognition_mobilefacenet_2022july.onnx path 
         boundingBoxScaleFactor: bounding box increase or deacrese from the output model face_detection_yunet_2023mar.onnx
+        cam_id: if you have only one camera, default is 0, 
+                but if you have more that one camera, openCV recognize them with ids, 0, 1, 2, ... 
 
     """
 
@@ -78,8 +81,8 @@ def face_detection_track_face_hands_emotion(model_path_yunet,
 
 
 
-    # cap = cv2.VideoCapture(0)
-    cap = cv2.VideoCapture(1)
+    cap = cv2.VideoCapture(cam_id)
+    # cap = cv2.VideoCapture(1)
 
     with mp_hands.Hands(min_detection_confidence=0.8, min_tracking_confidence=0.5) as hands: 
         while cap.isOpened():
@@ -164,6 +167,7 @@ def face_detection_track_face_hands_emotion(model_path_yunet,
             #================================================================================================
             results = faceMesh.process(image)
             if results.multi_face_landmarks:
+                # print(f"Face_land_mark_detected.")
                 for face_landmarks in results.multi_face_landmarks:
                     # Draw landmarks and connect them with lines
                     mp_drawing.draw_landmarks(
